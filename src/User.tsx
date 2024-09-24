@@ -9,7 +9,7 @@ const ProjectInfo = [
     {
         title: "CMS",
         desc: "This project assesses teachers and teachers by conducting and maintaining online records for the students appearing for various classes and sections. The College Management System would be highly useful for the staffs and admins for having a platform to maintain all the necessary records regarding student’s details. This project will enable educational institutes maintain records. The project allows faculties to create their records for students, classes, sections.",
-        image: "sms.png",
+        image: "/Icons/projectImages/sms.png",
         live:false,
         technologies: ["Python", "Django", "Bootstrap", "HTML", "CSS", "Javascript", "Ajax", "ChartJs"],
         link: "#",
@@ -125,4 +125,5 @@ const Slugs = [
     "sonarqube",
     "figma",
   ];
-export {Info, ProjectInfo, SkillInfo, ExperienceInfo,socialLinks, Slugs};
+export { Info, ProjectInfo, SkillInfo, ExperienceInfo, socialLinks, Slugs };
+
