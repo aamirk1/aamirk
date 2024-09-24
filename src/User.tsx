@@ -9,7 +9,7 @@ const ProjectInfo = [
     {
         title: "CMS",
         desc: "This project assesses teachers and teachers by conducting and maintaining online records for the students appearing for various classes and sections. The College Management System would be highly useful for the staffs and admins for having a platform to maintain all the necessary records regarding student’s details. This project will enable educational institutes maintain records. The project allows faculties to create their records for students, classes, sections.",
-        image: "/Icons/projectImages/sms.png",
+        image: `${process.env.PUBLIC_URL}/Icons/projectImages/sms.png`,
         live:false,
         technologies: ["Python", "Django", "Bootstrap", "HTML", "CSS", "Javascript", "Ajax", "ChartJs"],
         link: "#",
@@ -27,7 +27,7 @@ const ProjectInfo = [
     {
         title: "Ecommerce",
         desc: "The PHP eCommerce Platform is a robust and scalable online shopping solution designed to offer a seamless shopping experience for users and an intuitive management system for administrators. This platform leverages PHP to handle server-side scripting, coupled with MySQL for database management, HTML/CSS/JavaScript for the front-end, and various libraries and frameworks to enhance functionality. Our e-commerce platform features a powerful and intuitive admin dashboard designed to streamline the management of your online store. With a focus on flexibility and ease of use, the dashboard enables administrators to efficiently organize and maintain product listings, categories, and variants to ensure a seamless shopping experience for customers",
-        image: "ecom.png",
+        image: `${process.env.PUBLIC_URL}/Icons/projectImages/ecom.png`,
         live:false,
         technologies: ["PHP", "Bootstrap", "HTML", "CSS", "Javascript"],
         link: "https://maasav.com",
@@ -36,7 +36,7 @@ const ProjectInfo = [
     {
         title: "Society Manager",
         desc: "",
-        image: "society.png",
+        image: `${process.env.PUBLIC_URL}/Icons/projectImages/society.png`,
         live:true,
         technologies: ["Flutter", "Dart", "Firebase"],
         link: "https://maasav.com",
@@ -55,7 +55,7 @@ const ProjectInfo = [
     {
         title: "ResumeUploader",
         desc: "",
-        image: "resume.png",
+        image: `${process.env.PUBLIC_URL}/Icons/projectImages/resume.png`,
         live:false,
         technologies: ["Python", "Django", "sqlite", "HTML", "CSS", "Javascript"],
         link: "https://maasav.com",

@@ -1,11 +1,11 @@
-import { Info } from "../User";
-import Typewriter from "typewriter-effect";
 import { Button, useMatches } from "@mantine/core";
-import ResumeViewer from "./ResumeViewer";
 import { useDisclosure } from "@mantine/hooks";
 import { IconDownload } from "@tabler/icons-react";
-import Particles from "./magicui/particles";
+import Typewriter from "typewriter-effect";
+import { Info } from "../User";
+import ResumeViewer from "./ResumeViewer";
 import { NeonGradientCard } from "./magicui/neon-gradient-card";
+import Particles from "./magicui/particles";
 const About = () => {
   const [opened, { open, close }] = useDisclosure(false);
   const btn = useMatches({
@@ -84,7 +84,7 @@ const About = () => {
         >
           <NeonGradientCard className="w-[325px] h-[325px] lg-mx:w-64 lg-mx:h-64 xsm-mx:w-56 xsm-mx:h-56 items-center justify-center text-center">
             <img
-              src="/Icons/pic.png"
+              src={`${process.env.PUBLIC_URL}/Icons/pic.png`}
               className="w-full h-full rounded-full "
               alt="profile"
             />
