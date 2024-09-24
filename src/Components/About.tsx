@@ -65,7 +65,7 @@ const About = () => {
             </Button>
             <Button
               component="a"
-              href="/pyResume.pdf"
+              href={`${process.env.PUBLIC_URL}/pyResume.pdf`}
               download={Info.name}
               className="!text-primaryColor !w-fit"
               size={btn}
