@@ -18,7 +18,7 @@ const ProjectInfo = [
     {
         title: "TMS",
         desc: "The Ticket Management System is a Flutter-based web application with two main tabs: Master and Reports. The Master tab allows the admin to create users, manage work lists, and organize buildings, floors, rooms, and assets. The **Reports** tab enables the admin to filter and view tickets based on specific criteria. The system is designed to streamline ticket management and provide efficient oversight of tasks and resources.",
-        image: "/Icons/projectImages/tms.png",
+        image: `${process.env.PUBLIC_URL}/Icons/projectImages/tms.png`,
         live:true,
         technologies:["Flutter", "Dart", "Firebase"],
         link: "https://tms.nldalmia.in",
