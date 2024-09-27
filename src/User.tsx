@@ -7,7 +7,7 @@ const Info = {
 }
 const ProjectInfo = [
     {
-        title: "CMS",
+        title: "SMS",
         desc: "This project assesses teachers and teachers by conducting and maintaining online records for the students appearing for various classes and sections. The College Management System would be highly useful for the staffs and admins for having a platform to maintain all the necessary records regarding student’s details. This project will enable educational institutes maintain records. The project allows faculties to create their records for students, classes, sections.",
         image: `${process.env.PUBLIC_URL}/Icons/projectImages/sms.png`,
         live:false,
@@ -36,10 +36,10 @@ const ProjectInfo = [
     {
         title: "Society Manager",
         desc: "",
-        image: `${process.env.PUBLIC_URL}/Icons/projectImages/society.png`,
+        image: `${process.env.PUBLIC_URL}/Icons/projectImages/societyadmin.png`,
         live:true,
         technologies: ["Flutter", "Dart", "Firebase"],
-        link: "https://maasav.com",
+        link: "https://societyadmin.web.app/",
         github: "https://github.com/aamirk1/ecomerc.git"
     },
     {
