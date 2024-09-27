@@ -1,3 +1,5 @@
+
+// @tabler-icons-react.d.ts
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 
 const Info = {
@@ -85,17 +87,23 @@ const SkillInfo = [
 const ExperienceInfo = [
     {
         role: "Web Application Developer",
+        company: "Zap Web Media Solutionz",
+        date: "Dec 2022 - 2023",
+        desc: "As a Web Application Developer at Zap Solutionz, I am responsible for designing, developing, and maintaining dynamic web applications. My role involves collaborating with cross-functional teams to create user-friendly interfaces and ensure seamless functionality. I utilize various technologies to deliver high-quality solutions that meet client requirements and enhance user experience.",
+        skills: ["Django", "Python", "HTML", "CSS", "JavaScript", "PHP", "Bootstrap", "MySQL", "XAMPP"]
+    },
+    {
+        role: "Flutter Developer",
         company: "Zap Solutionz",
-        date: "Dec 2022 - Present",
-        desc: "jnhgbkhiuhuiiu biuguyhinjiuh",
-        skills: ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap", "MySQL", "XAMPP"]
+        date: "Dec 2023 - Present",
+        desc: "As a Flutter Developer at Zap Solutionz, I am responsible for designing and building cross-platform mobile applications that provide an engaging user experience. My role involves collaborating with product teams to define application features and ensure high performance across various devices. I leverage the Flutter framework and Dart programming language to deliver high-quality, maintainable code.",
+        skills: ["Flutter", "Dart", "Firebase", "REST API", "Git"]
     }
 ]
 const socialLinks = [{link:"https://github.com/aamirk1", icon:IconBrandGithub}, {link:"https://in.linkedin.com/in/aamirkhan131", icon:IconBrandLinkedin},];
    
 const Slugs = [
     "typescript",
-    "javascript",
     "dart",
     "java",
     "react",
@@ -106,24 +114,22 @@ const Slugs = [
     "nodedotjs",
     "express",
     "nextdotjs",
-    "prisma",
-    "amazonaws",
     "postgresql",
     "firebase",
     "nginx",
     "vercel",
-    "testinglibrary",
-    "jest",
-    "cypress",
-    "docker",
+    // "testinglibrary",
+    // "jest",
+    // "cypress",
+    // "docker",
     "git",
     "jira",
     "github",
     "gitlab",
     "visualstudiocode",
     "androidstudio",
-    "sonarqube",
-    "figma",
+    // "sonarqube",
+    // "figma",
   ];
 export { Info, ProjectInfo, SkillInfo, ExperienceInfo, socialLinks, Slugs };
 

@@ -1,4 +1,3 @@
-import { Avatar } from "@mantine/core";
 
 const SkillBadge = (skills: []) => {
   return skills.map((skill: any, index: number) => (

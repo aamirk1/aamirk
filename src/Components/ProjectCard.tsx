@@ -1,11 +1,11 @@
 import {
-  Card,
-  Image,
-  Text,
   Badge,
   Button,
+  Card,
   Group,
+  Image,
   Indicator,
+  Text,
   useMatches,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -24,7 +24,7 @@ const ProjectCard = (props: any) => {
   })
   const [opened, { open, close }] = useDisclosure(false);
   return (
-    <div className="w-[32%] lg-mx:w-[46%] md-mx:w-[48%] sm-mx:w-[90%] xs-mx:w-full" data-aos="fade-up" data-aos-duration="800">
+    <div className="w-[32%] lg-mx:w-[46%] md-mx:w-[48%] sm-mx:w-full xs-mx:w-full" data-aos="fade-up" data-aos-duration="800">
       <Card
         onClick={open}
         className="bg-bgColor cursor-pointer transition-transform duration-300 ease-in-out hover:!scale-[1.03] mb-5 hover:!shadow-[0_0_10px_1px_#64FFDA] !border-primaryColor border-2"
