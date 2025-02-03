@@ -25,10 +25,15 @@ const ProjectCard = (props: any) => {
   const [opened, { open, close }] = useDisclosure(false);
   return (
     <div className="w-[32%] lg-mx:w-[46%] md-mx:w-[48%] sm-mx:w-full xs-mx:w-full" data-aos="fade-up" data-aos-duration="800">
-      <Card
+      {/* <Card
         onClick={open}
         className="bg-bgColor cursor-pointer transition-transform duration-300 ease-in-out hover:!scale-[1.03] mb-5 hover:!shadow-[0_0_10px_1px_#64FFDA] !border-primaryColor border-2"
-        w="340px"
+        w="340px" */}
+        <Card
+        onClick={open}
+        className="bg-bgColor cursor-pointer transition-transform duration-300 ease-in-out hover:!scale-[1.03] mb-5 hover:!shadow-[0_0_10px_1px_#64FFDA] !border-primaryColor border-2
+        w-[400px] display-flex justify-center sm-mx:justify-self-center xs-mx:justify-self-center xsm-mx:justify-self-center md-mx:w-[490px] sm-mx:w-[390px] xs-mx:w-[320px] xsm-mx:w-[280px] lg-mx:w-[490px] "
+
         shadow="lg"
         padding="sm"
         radius="lg"

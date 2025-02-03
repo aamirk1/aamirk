@@ -47,10 +47,10 @@ const ProjectInfo = [
     {
         title: "Zap Account",
         desc: "",
-        image: "zapAccount.png",
+        image: `${process.env.PUBLIC_URL}/Icons/projectImages/zapAccount.jpeg`,
         live:true,
         technologies: ["PHP", "Bootstrap", "HTML", "CSS", "Javascript"],
-        link: "https://maasav.com",
+        link: "https://dataclode.zapwmp.in",
         github: "https://github.com/aamirk1/ecomerc.git"
     },
     

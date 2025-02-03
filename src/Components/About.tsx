@@ -65,7 +65,7 @@ const About = () => {
             </Button>
             <Button
               component="a"
-              href={`${process.env.PUBLIC_URL}/pyResume.pdf`}
+              href={`${process.env.PUBLIC_URL}/AamirResume.pdf`}
               download={Info.name}
               className="!text-primaryColor !w-fit"
               size={btn}
@@ -84,7 +84,7 @@ const About = () => {
         >
           <NeonGradientCard className="w-[325px] h-[325px] lg-mx:w-64 lg-mx:h-64 xsm-mx:w-56 xsm-mx:h-56 items-center justify-center text-center">
             <img
-              src={`${process.env.PUBLIC_URL}/Icons/pic.png`}
+              src={`${process.env.PUBLIC_URL}/Icons/pic.jpeg`}
               className="w-full h-full rounded-full "
               alt="profile"
             />
