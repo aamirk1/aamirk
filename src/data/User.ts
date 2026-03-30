@@ -100,8 +100,23 @@ const ExperienceInfo = [
     {
         role: "Flutter Developer",
         company: "Zap Solutionz",
-        date: "Dec 2023 - Present",
+        date: "Dec 2023 - March 2025",
         desc: "As a Flutter Developer at Zap Solutionz, I am responsible for designing and building cross-platform mobile applications that provide an engaging user experience. My role involves collaborating with product teams to define application features and ensure high performance across various devices. I leverage the Flutter framework and Dart programming language to deliver high-quality, maintainable code.",
+        skills: ["Flutter", "Dart", "Firebase", "REST API", "Git"]
+    },
+    {
+        role: "Flutter Developer",
+        company: "Freelancer",
+        date: "April 2025 - May 2025",
+        desc: "As a Flutter Developer, I am responsible for designing and building cross-platform mobile applications that provide an engaging user experience. My role involves collaborating with clients and designers to define application features and ensure high performance across various devices. I leverage the Flutter framework and Dart programming language to deliver high-quality, maintainable code.",
+        skills: ["Flutter", "Dart", "Firebase", "REST API", "Git"]
+    }
+    ,
+    {
+        role: "Senior Flutter Developer",
+        company: "Anjita IT Solutions",
+        date: "June 2025 - Present",
+        desc: "As a Senior Flutter Developer, I am responsible for designing and building cross-platform mobile applications that provide an engaging user experience. My role involves collaborating with clients, backend developers, UI/UX designers and project managers to define application features and ensure high performance across various devices. I leverage the Flutter framework and Dart programming language to deliver high-quality, maintainable code.",
         skills: ["Flutter", "Dart", "Firebase", "REST API", "Git"]
     }
 ]
@@ -112,6 +127,7 @@ const Slugs = [
     "dart",
     "java",
     "react",
+    "nextjs",
     "flutter",
     "android",
     "html5",
@@ -134,7 +150,7 @@ const Slugs = [
     "visualstudiocode",
     "androidstudio",
     // "sonarqube",
-    // "figma",
+    "figma",
 ];
 export { Info, ProjectInfo, SkillInfo, ExperienceInfo, socialLinks, Slugs };
 
