@@ -60,12 +60,12 @@ const Header = () => {
 
   return (
     <nav className={`fixed w-full z-50 glass h-20 transition-all duration-300 ease-in-out px-10 flex items-center justify-between ${show ? "translate-y-0" : "-translate-y-full"} ${shadow ? "shadow-lg bg-background/80 backdrop-blur-md" : "bg-transparent h-24"}`}>
-      <motion.div 
+      <motion.div
         whileHover={{ rotate: 10, scale: 1.1 }}
         className="flex items-center gap-2 cursor-pointer"
       >
         <IconHexagonLetterA size={isMobile ? 35 : 45} color="var(--primary)" stroke={1.5} />
-        {!isMobile && <span className="font-bold text-xl tracking-tighter">Aamir.</span>}
+        {!isMobile && <span className="font-bold text-xl tracking-tighter">Aamir</span>}
       </motion.div>
 
       <div className="flex items-center gap-8">

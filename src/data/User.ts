@@ -73,11 +73,15 @@ const ProjectInfo = [
 const SkillInfo = [
     {
         title: "Frontend",
-        skills: ["HTML", "CSS", "JavaScript", "React JS", "Tailwind CSS", "Material UI", "Bootstrap"]
+        skills: ["Flutter", "HTML", "CSS", "JavaScript", "React JS", "Next JS", "Tailwind CSS", "Material UI", "Bootstrap"]
     },
     {
         title: "Backend",
-        skills: ["Django", "Flutter", "MySQL", "MongoDB", "Firebase", "PostgreSQL", "Node JS", "Express JS", "Sqlite", "Redis"]
+        skills: ["Django", "Django Rest Framework", "FastAPI", "PHP"]
+    },
+    {
+        title: "Database",
+        skills: ["MySQL", "MongoDB", "PostgreSQL", "Firebase", "Sqlite", "Redis", "Hive"]
     },
     {
         title: "Language",
@@ -85,7 +89,7 @@ const SkillInfo = [
     },
     {
         title: "Tools",
-        skills: ["Git", "Github", "Linux", "VS Code", "MongoDB Compass", "Postman", "Django Rest Framework", "Numpy", "Matplotlib", "Pandas", "TensorFlow", "Xampp", "Shared Hosting"]
+        skills: ["Git", "Github", "Figma", "VS Code", "Postman", "MongoDB Compass", "Linux", "Numpy", "Matplotlib", "Pandas", "TensorFlow", "Xampp"]
     }
 ]
 
