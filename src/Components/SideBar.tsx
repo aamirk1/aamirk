@@ -1,3 +1,4 @@
+"use client";
 import { Burger, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { navLinks } from "./Header";

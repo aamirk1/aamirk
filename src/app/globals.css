@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bgColor: var(--background);
+  --color-primaryColor: var(--primary);
+  --color-textColor: var(--foreground);
+  --color-mutedColor: var(--muted-foreground);
+
+  --breakpoint-xsm: 350px;
+  --breakpoint-xs: 475px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-bs: 900px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --primary: #0d9488;
+  /* Professional Teal */
+  --muted-foreground: #64748b;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --header-bg: rgba(248, 250, 252, 0.8);
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #f1f5f9;
+  --primary: #64FFDA;
+  /* Neon teal for dark */
+  --muted-foreground: #94a3b8;
+  --card-bg: #0f172a;
+  --border: #1e293b;
+  --header-bg: rgba(2, 6, 23, 0.8);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+#bg {
+  background: radial-gradient(circle at 50% 50%, var(--background) 0%, var(--muted) 100%);
+}
+
+.professional-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.professional-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}

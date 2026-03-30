@@ -1,31 +1,52 @@
-const FloatingInput = (props: any) => {
+"use client";
+import React from 'react';
+import { motion } from 'framer-motion';
+
+interface FloatingInputProps {
+  id: string;
+  name: string;
+  value: string;
+  handleChange?: (id: string, value: string) => void;
+  type?: string;
+  rows?: number;
+}
+
+const FloatingInput = ({ id, name, value, handleChange, type = "text", rows = 4 }: FloatingInputProps) => {
+  const isTextArea = id === "message";
+
   return (
-    <div className="relative">
-      {props.id != "message" ? (
-        <input
-          type="text"
-          id={props.id}
-          value={props.value}
-          onChange={(e) => props.handleChange(props.id, e.target.value)}
-          className="block px-2.5 pb-2.5 pt-4 w-full text-xl sm-mx:text-lg sm-mx:pb-1 sm-mx:pt-2 xs-mx:text-base text-white bg-transparent rounded-xl border border-textColor appearance-none hover:shadow-[0_0_8px_0_#64FFDA70] focus:outline-none focus:ring-0 focus:border-primaryColor peer"
-          placeholder=""
+    <div className="relative w-full group">
+      {isTextArea ? (
+        <textarea
+          id={id}
+          value={value}
+          rows={rows}
+          onChange={(e) => handleChange?.(id, e.target.value)}
+          className="block px-4 pb-3 pt-6 w-full text-base sm:text-lg text-foreground bg-transparent rounded-2xl border-2 border-border/80 appearance-none focus:outline-none focus:ring-0 focus:border-primaryColor peer transition-all duration-300 hover:border-primaryColor/40 resize-none min-h-[140px]"
+          placeholder=" "
         />
       ) : (
-        <textarea
-          placeholder=""
-          name={props.id}
-          id={props.id}
-          rows={4}
-          className="block px-2.5 pb-2.5 pt-4 w-full text-xl sm-mx:text-lg xs-mx:text-base text-white bg-transparent rounded-xl border border-textColor appearance-none hover:shadow-[0_0_8px_0_#64FFDA70] focus:outline-none focus:ring-0 focus:border-primaryColor peer"
-        ></textarea>
+        <input
+          type={type}
+          id={id}
+          value={value}
+          onChange={(e) => handleChange?.(id, e.target.value)}
+          className="block px-4 pb-3 pt-6 w-full text-base sm:text-lg text-foreground bg-transparent rounded-2xl border-2 border-border/80 appearance-none focus:outline-none focus:ring-0 focus:border-primaryColor peer transition-all duration-300 hover:border-primaryColor/40"
+          placeholder=" "
+        />
       )}
+      
       <label
-        htmlFor={props.id}
-        className={`absolute text-xl sm-mx:text-lg xs-mx:text-base text-textColor  duration-300 transhtmlForm -translate-y-4 scale-100 top-1 z-10 origin-[0] bg-bgColor px-2 peer-focus:px-2 peer-focus:text-primaryColor  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 ${props.id !="message"?"peer-placeholder-shown:top-1/2":"peer-placeholder-shown:top-6"} peer-focus:top-1 peer-focus:scale-100 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1`}
+        htmlFor={id}
+        className="absolute text-muted-foreground font-bold text-sm sm:text-base duration-300 transform -translate-y-4 scale-90 top-5 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-90 peer-focus:-translate-y-4 peer-focus:text-primaryColor pointer-events-none uppercase tracking-widest text-[10px]"
       >
-        {props.name}
+        {name}
       </label>
+
+      {/* Decorative Focus Border */}
+      <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primaryColor transition-all duration-500 ease-out group-focus-within:w-[90%] group-focus-within:left-[5%] rounded-full opacity-60" />
     </div>
   );
 };
+
 export default FloatingInput;

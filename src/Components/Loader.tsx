@@ -1,6 +1,7 @@
 
+"use client";
 import { IconHexagon } from "@tabler/icons-react";
-import { Slugs } from "../User";
+import { Slugs } from "@/data/User";
 import IconCloud from "./magicui/icon-cloud";
 
 

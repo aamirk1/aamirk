@@ -1,12 +1,15 @@
+"use client";
 import {
   Modal,
   ScrollArea,
   ActionIcon,
   Tooltip,
 } from "@mantine/core";
-import {  IconArrowBigDownLineFilled } from "@tabler/icons-react";
-import { Document, Page } from "react-pdf";
-import { Info } from "../User";
+import { IconArrowBigDownLineFilled } from "@tabler/icons-react";
+import { Document, Page, pdfjs } from "react-pdf";
+import { Info } from "@/data/User";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const ResumeViewer = (props: any) => {
   return (
@@ -24,11 +27,11 @@ const ResumeViewer = (props: any) => {
             data-autofocus
             className="!text-4xl text-white flex gap-3 items-center !font-bold"
           >
-            Resume 
-            <Tooltip label ="Download" className="!text-bgColor" color="#64FFDA" position="right" offset={5}>
-            <ActionIcon className="!text-primaryColor" component="a" href="/pyResume.pdf" download={Info.name} variant="outline" color="#64FFDA">
-                <IconArrowBigDownLineFilled style={{ width: '70%', height:'70%' }} stroke={1.5}/>
-            </ActionIcon>
+            Resume
+            <Tooltip label="Download" className="!text-bgColor" color="#64FFDA" position="right" offset={5}>
+              <ActionIcon className="!text-primaryColor" component="a" href="/pyResume.pdf" download={Info.name} variant="outline" color="#64FFDA">
+                <IconArrowBigDownLineFilled style={{ width: '70%', height: '70%' }} stroke={1.5} />
+              </ActionIcon>
             </Tooltip>
           </Modal.Title>
           <Modal.CloseButton
@@ -39,10 +42,10 @@ const ResumeViewer = (props: any) => {
         </Modal.Header>
         <Modal.Body className="!bg-bgColor !pt-2 !border-primaryColor  !border-2 !border-t-0 !rounded-bl-3xl !rounded-br-3xl ">
           <Document
-          file="/AamirResume.pdf">
+            file="/AamirResume.pdf">
             <Page pageNumber={1} renderTextLayer={false} renderAnnotationLayer={false} />
           </Document>
-          
+
         </Modal.Body>
       </Modal.Content>
     </Modal.Root>

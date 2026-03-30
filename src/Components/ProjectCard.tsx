@@ -1,3 +1,4 @@
+"use client";
 import {
   Badge,
   Button,
@@ -7,106 +8,112 @@ import {
   Indicator,
   Text,
   useMatches,
+  useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import FullProjectModel from "./FullProjectModel";
-const ProjectCard = (props: any) => {
-  const badge = useMatches({
-    xsm:'sm',
-    md:'md',
-    lg:'lg'
-  })
-  const btn = useMatches({
-    xs:'xs',
-    sm:'sm',
-    md:'md',
-    lg:'lg'
-  })
-  const [opened, { open, close }] = useDisclosure(false);
-  return (
-    <div className="w-[32%] lg-mx:w-[46%] md-mx:w-[48%] sm-mx:w-full xs-mx:w-full" data-aos="fade-up" data-aos-duration="800">
-      {/* <Card
-        onClick={open}
-        className="bg-bgColor cursor-pointer transition-transform duration-300 ease-in-out hover:!scale-[1.03] mb-5 hover:!shadow-[0_0_10px_1px_#64FFDA] !border-primaryColor border-2"
-        w="340px" */}
-        <Card
-        onClick={open}
-        className="bg-bgColor cursor-pointer transition-transform duration-300 ease-in-out hover:!scale-[1.03] mb-5 hover:!shadow-[0_0_10px_1px_#64FFDA] !border-primaryColor border-2
-        w-[400px] display-flex justify-center sm-mx:justify-self-center xs-mx:justify-self-center xsm-mx:justify-self-center md-mx:w-[490px] sm-mx:w-[390px] xs-mx:w-[320px] xsm-mx:w-[280px] lg-mx:w-[490px] "
+import { motion, useScroll, useTransform } from "framer-motion";
 
-        shadow="lg"
-        padding="sm"
-        radius="lg"
+const ProjectCard = (props: any) => {
+  const theme = useMantineTheme();
+  const [opened, { open, close }] = useDisclosure(false);
+  
+  const badgeSize = useMatches({
+    xsm: 'xs',
+    sm: 'sm',
+    md: 'md',
+  });
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="md:w-[48%] lg:w-[31%] xl:w-[31%] group w-full"
+    >
+      <Card
         withBorder
+        onClick={open}
+        className="h-full bg-card-bg cursor-pointer transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-2xl !border-border rounded-2xl group overflow-hidden"
+        shadow="md"
+        padding="lg"
       >
-        <Card.Section className="p-3">
-          <Image
-            className="!rounded-xl !shadow-[0_0_5px_0_#64FFDA]"
-            src={props.image}
-            alt={props.image}
-          />
+        <Card.Section className="overflow-hidden relative p-4">
+          <motion.div
+            whileHover={{ scale: 1.08 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Image
+              className="!rounded-xl h-[230px] object-cover border border-border group-hover:shadow-[0_0_20px_0_rgba(100,255,218,0.2)]"
+              src={props.image}
+              fallbackSrc="https://placehold.co/600x400?text=Project+Coming+Soon"
+              alt={props.title}
+            />
+          </motion.div>
+          {props.live && (
+            <div className="absolute top-8 right-8">
+              <Badge
+                variant="filled"
+                color="teal"
+                size="sm"
+                className="!bg-primaryColor !text-bgColor font-black tracking-tighter"
+                rightSection={<Indicator color="white" processing size={6} />}
+              >
+                LIVE
+              </Badge>
+            </div>
+          )}
         </Card.Section>
 
-        <Group justify="space-between" mt="xs" mb="xs">
-          <Text className="!text-2xl !font-bold gap-2 !text-white flex items-center sm-mx:!text-xl">
-            {props.title}
+        <div className="mt-4 space-y-4">
+          <Group justify="space-between" align="start">
+            <Text component="div" className="text-xl font-black text-foreground group-hover:text-primaryColor transition-colors">
+              {props.title}
+            </Text>
+          </Group>
 
-            {props.live === true && (
-              <Badge className="!px-1"
-                variant="outline"
-                color="#64FFDA"
-                rightSection={
-                  <Indicator className="!mr-0.5"
-                    color="#64FFDA"
-                    position="middle-end"
-                    size={7}
-                    processing
-                  ></Indicator>
-                }
+          <Group gap={6}>
+            {props.technologies.slice(0, 3).map((tech: string, index: number) => (
+              <Badge 
+                key={index} 
+                size={badgeSize} 
+                variant="outline" 
+                color="teal" 
+                className="!border-primaryColor/30 !text-primaryColor/80 !text-[10px]"
               >
-                Live
+                {tech}
+              </Badge>
+            ))}
+            {props.technologies.length > 3 && (
+              <Badge size="xs" variant="transparent" color="gray" className="!text-[10px]">
+                +{props.technologies.length - 3}
               </Badge>
             )}
-          </Text>
-        </Group>
-        <Group mb="sm"  className="!gap-2">
-          {props.technologies.map(
-            (tech: string, index: number) =>
-              index < 3 && (
-                <Badge key={index} size={badge} variant="light" color="#64FFDA">
-                  {tech}
-                </Badge>
-              )
-          )}
-        </Group>
-        <Text className="!text-justify !text-sm xs-mx:!text-xs" lineClamp={5} size="sm" c="dimmed">
-          {props.desc}
-        </Text>
+          </Group>
 
-        <Button
-          onClick={open}
-          className=""
-          variant="outline"
-          color="#64FFDA"
-          mt="md"
-          size={btn}
-          radius="md"
-        >
-          Show More
-        </Button>
+          <Text className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
+            {props.desc}
+          </Text>
+
+          <Button
+            fullWidth
+            onClick={open}
+            variant="light"
+            color="teal"
+            className="!bg-primaryColor/10 !text-primaryColor hover:!bg-primaryColor transition-all duration-300 hover:!text-bgColor rounded-xl font-bold h-11"
+          >
+            Explore Project
+          </Button>
+        </div>
       </Card>
+
       <FullProjectModel
         opened={opened}
         close={close}
-        title={props.title}
-        desc={props.desc}
-        image={props.image}
-        live={props.live}
-        link={props.link}
-        github={props.github}
-        technologies={props.technologies}
+        {...props}
       />
-    </div>
+    </motion.div>
   );
 };
 
