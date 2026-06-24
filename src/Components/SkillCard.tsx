@@ -4,7 +4,7 @@ import { useMediaQuery } from "@mantine/hooks";
 
 const SkillBadge = (skills: string[]) => {
   return skills.map((skill: string, index: number) => (
-    <motion.div 
+    <motion.div
       key={index}
       initial={{ opacity: 0, scale: 0.8 }}
       whileInView={{ opacity: 1, scale: 1 }}
@@ -36,7 +36,7 @@ const SkillCard = ({ title, skills, index }: any) => {
     >
       {/* Glow Effect */}
       <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-primaryColor/5 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:bg-primaryColor/10 transition-colors duration-500" />
-      
+
       <div className="relative z-10 flex flex-col gap-8">
         <h3 className="text-2xl sm:text-3xl font-black text-center text-foreground group-hover:text-primaryColor transition-colors tracking-tight">
           {title}

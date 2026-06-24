@@ -17,7 +17,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const ProjectCard = (props: any) => {
   const theme = useMantineTheme();
   const [opened, { open, close }] = useDisclosure(false);
-  
+
   const badgeSize = useMatches({
     xsm: 'xs',
     sm: 'sm',
@@ -45,8 +45,9 @@ const ProjectCard = (props: any) => {
             transition={{ duration: 0.4 }}
           >
             <Image
-              className="!rounded-xl h-[230px] object-cover border border-border group-hover:shadow-[0_0_20px_0_rgba(100,255,218,0.2)]"
+              className="!rounded-xl h-[230px] border border-border group-hover:shadow-[0_0_20px_0_rgba(100,255,218,0.2)]"
               src={props.image}
+              fit="contain"
               fallbackSrc="https://placehold.co/600x400?text=Project+Coming+Soon"
               alt={props.title}
             />
@@ -74,18 +75,18 @@ const ProjectCard = (props: any) => {
           </Group>
 
           <Group gap={6}>
-            {props.technologies.slice(0, 3).map((tech: string, index: number) => (
-              <Badge 
-                key={index} 
-                size={badgeSize} 
-                variant="outline" 
-                color="teal" 
+            {(props.technologies || []).slice(0, 3).map((tech: string, index: number) => (
+              <Badge
+                key={index}
+                size={badgeSize}
+                variant="outline"
+                color="teal"
                 className="!border-primaryColor/30 !text-primaryColor/80 !text-[10px]"
               >
                 {tech}
               </Badge>
             ))}
-            {props.technologies.length > 3 && (
+            {props.technologies && props.technologies.length > 3 && (
               <Badge size="xs" variant="transparent" color="gray" className="!text-[10px]">
                 +{props.technologies.length - 3}
               </Badge>

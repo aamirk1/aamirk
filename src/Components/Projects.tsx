@@ -59,7 +59,6 @@ const Projects = () => {
             label: { 
               fontWeight: 700, 
               color: 'var(--foreground)',
-              '&[data-active]': { color: 'var(--background)' }
             }
           }}
         />

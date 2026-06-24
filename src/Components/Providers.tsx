@@ -8,6 +8,20 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { PortfolioProvider } from './PortfolioContext';
 
+// Suppress React 19 false-positive script tag warnings from next-themes in development
+if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+  const originalError = console.error;
+  console.error = (...args: any[]) => {
+    if (
+      typeof args[0] === "string" &&
+      args[0].includes("Encountered a script tag while rendering React component")
+    ) {
+      return;
+    }
+    originalError.apply(console, args);
+  };
+}
+
 const theme = createTheme({
   breakpoints: {
     'xs': '320px',

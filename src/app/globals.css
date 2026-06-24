@@ -17,25 +17,25 @@
 }
 
 :root {
-  --background: #f8fafc;
+  --background: #f1f5f9;
   --foreground: #0f172a;
   --primary: #0d9488;
   /* Professional Teal */
   --muted-foreground: #64748b;
   --card-bg: #ffffff;
-  --border: #e2e8f0;
-  --header-bg: rgba(248, 250, 252, 0.8);
+  --border: #cbd5e1;
+  --header-bg: rgba(241, 245, 249, 0.8);
 }
 
 .dark {
-  --background: #020617;
+  --background: #030712;
   --foreground: #f1f5f9;
   --primary: #64FFDA;
   /* Neon teal for dark */
   --muted-foreground: #94a3b8;
-  --card-bg: #0f172a;
-  --border: #1e293b;
-  --header-bg: rgba(2, 6, 23, 0.8);
+  --card-bg: #0b1528;
+  --border: #162a45;
+  --header-bg: rgba(3, 7, 18, 0.8);
 }
 
 html {
@@ -88,4 +88,9 @@ body {
 .professional-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* SegmentedControl active label color override */
+.mantine-SegmentedControl-label[data-active] {
+  color: var(--background) !important;
 }

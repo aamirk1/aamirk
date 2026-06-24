@@ -42,12 +42,13 @@ const FullProjectModel = (props: any) => {
           </Modal.Header>
           <Modal.Body className="!bg-bgColor !pt-2 !border-primaryColor  !border-2 !border-t-0 !rounded-bl-3xl !rounded-br-3xl ">
             <Image
-              className="!rounded-xl !shadow-[0_0_5px_0_#64FFDA]"
+              className="!rounded-xl w-full h-[300px] sm:h-[400px] !shadow-[0_0_5px_0_#64FFDA] border border-border"
               src={props.image}
+              fit="contain"
               alt={props.image}
             />
             <Group mb="md" mt="md" >
-              {props.technologies.map(
+              {(props.technologies || []).map(
                 (tech: string, index: number) =>
 
                   <Badge key={index} size="xl" variant="light" color="#64FFDA">

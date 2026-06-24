@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   transpilePackages: ["react-pdf", "pdfjs-dist"],
+  devIndicators: false,
   // Set esmExternals to 'loose' to better handle buggy ESM packages like pdfjs-dist 5.x
   experimental: {
     esmExternals: "loose",

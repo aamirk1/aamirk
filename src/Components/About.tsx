@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 import { motion, Variants } from "framer-motion";
 import { NeonGradientCard } from "./magicui/neon-gradient-card";
 import Particles from "./magicui/particles";
+import { useTheme } from "next-themes";
 
 const ResumeViewer = dynamic(() => import('./ResumeViewer'), { ssr: false });
 
@@ -34,6 +35,7 @@ const itemVariants: Variants = {
 const About = () => {
   const { Info } = usePortfolio();
   const [opened, { open, close }] = useDisclosure(false);
+  const { theme: nextTheme } = useTheme();
 
   const theme = useMantineTheme();
 
@@ -42,6 +44,8 @@ const About = () => {
     sm: 'md',
     md: 'lg',
   });
+
+  const particleColor = nextTheme === "dark" ? "#60a5fa" : "#1d4ed8";
 
   return (
     <section
@@ -52,7 +56,7 @@ const About = () => {
         className="absolute inset-0 pointer-events-none"
         quantity={150}
         ease={80}
-        color="var(--primary)"
+        color={particleColor}
         refresh
       />
 
@@ -66,7 +70,7 @@ const About = () => {
         <div className="space-y-8 text-center lg:text-left">
           <motion.div variants={itemVariants} className="space-y-2">
             <span className="text-primaryColor font-mono text-sm tracking-widest uppercase">
-              Hello World, I'm
+              Hello, I'm
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-foreground tracking-tight leading-tight">
               {Info.name}.
