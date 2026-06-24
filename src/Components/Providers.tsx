@@ -6,6 +6,7 @@ import '@mantine/core/styles.css';
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { PortfolioProvider } from './PortfolioContext';
 
 const theme = createTheme({
   breakpoints: {
@@ -37,8 +38,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
       <MantineProvider theme={theme} defaultColorScheme="dark">
-        {children}
+        <PortfolioProvider>
+          {children}
+        </PortfolioProvider>
       </MantineProvider>
     </ThemeProvider>
   );
 }
+

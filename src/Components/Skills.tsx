@@ -1,9 +1,11 @@
 "use client";
-import { SkillInfo } from "@/data/User";
+import { usePortfolio } from "./PortfolioContext";
 import SkillCard from "./SkillCard";
 import { motion } from "framer-motion";
 
 const Skills = () => {
+  const { SkillInfo } = usePortfolio();
+
   return (
     <section className="px-4 sm:px-8 lg:px-16 my-24 max-w-7xl mx-auto" id="Skills">
       <motion.div

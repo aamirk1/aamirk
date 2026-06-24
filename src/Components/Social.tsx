@@ -1,8 +1,10 @@
-import { socialLinks } from "@/data/User";
+import { usePortfolio } from "./PortfolioContext";
 
 const Social=()=>{
+  const { socialLinks } = usePortfolio();
 
   const socialIcons = socialLinks.map((socialLinks, index) => {
+
     return <a key={index} href={`${socialLinks.link}`} target="_blank" rel="noreferrer" className="font-mono text-lg hover:text-primaryColor hover:-translate-x-2 transition transform duration-300 ease-in-out">
       <div data-aos="fade-up-left" data-aos-duration="800"><socialLinks.icon className="-rotate-90" size={30} /></div>  
     </a>

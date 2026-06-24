@@ -1,14 +1,17 @@
 "use client";
-import { ProjectInfo } from "@/data/User";
 import ProjectCard from "./ProjectCard";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { SegmentedControl, useMatches } from "@mantine/core";
 
+import { usePortfolio } from "./PortfolioContext";
+
 const Projects = () => {
+  const { ProjectInfo } = usePortfolio();
   const [activeTab, setActiveTab] = useState("All");
   
   const filteredProjects = ProjectInfo.filter((project: any) => 
+
     activeTab === "All" ? true : project.type === activeTab
   );
 

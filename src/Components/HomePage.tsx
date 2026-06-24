@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Info, ProjectInfo, SkillInfo, ExperienceInfo, socialLinks, Slugs } from "@/data/User";
+import { usePortfolio } from "./PortfolioContext";
 import About from "./About";
 import Contact from "./Contact";
 import Experience from "./Experience";
@@ -13,14 +12,8 @@ import Skills from "./Skills";
 import Social from "./Social";
 
 const HomePage = () => {
-    const [loading, setLoading] = useState(true);
-        useEffect(()=>{
-            setTimeout(()=>{
-                setLoading(false);
-            },5000)
-        },[] )
+    const { loading } = usePortfolio();
     return (
-        
         <div className={`min-h-[100vh] ${loading?"flex":""} items-center overflow-hidden justify-center`}>
             { loading!==true ?<>
                 <Header />

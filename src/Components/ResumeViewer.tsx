@@ -7,11 +7,13 @@ import {
 } from "@mantine/core";
 import { IconArrowBigDownLineFilled } from "@tabler/icons-react";
 import { Document, Page, pdfjs } from "react-pdf";
-import { Info } from "@/data/User";
+import { usePortfolio } from "./PortfolioContext";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const ResumeViewer = (props: any) => {
+  const { Info } = usePortfolio();
+
   return (
     <Modal.Root
       scrollAreaComponent={ScrollArea.Autosize}

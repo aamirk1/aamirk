@@ -3,7 +3,7 @@ import { Button, useMatches, useMantineTheme } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconDownload, IconFileText } from "@tabler/icons-react";
 import Typewriter from "typewriter-effect";
-import { Info } from "@/data/User";
+import { usePortfolio } from "./PortfolioContext";
 import dynamic from 'next/dynamic';
 import { motion, Variants } from "framer-motion";
 import { NeonGradientCard } from "./magicui/neon-gradient-card";
@@ -32,7 +32,9 @@ const itemVariants: Variants = {
 };
 
 const About = () => {
+  const { Info } = usePortfolio();
   const [opened, { open, close }] = useDisclosure(false);
+
   const theme = useMantineTheme();
 
   const btnSize = useMatches({

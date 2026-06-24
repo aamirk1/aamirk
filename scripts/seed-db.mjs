@@ -1,12 +1,24 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 
-// @tabler-icons-react.d.ts
-import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 const Info = {
     name: "Aamir Khan",
     stack: ["Software Developer", "Full Stack Web Developer", "Flutter Developer", "Python Developer"],
     bio: "I am a distinguished software developer with a specialization in developing sophisticated, scalable solutions and delivering premium web applications. My focus is on providing exceptional IT services that go beyond client expectations. I invite you to connect and collaborate to achieve extraordinary results."
-}
+};
+
 const ProjectInfo = [
     {
         title: "SMS",
@@ -30,7 +42,7 @@ const ProjectInfo = [
     },
     {
         title: "Ecommerce",
-        desc: "The PHP eCommerce Platform is a robust and scalable online shopping solution designed to offer a seamless shopping experience for users and an intuitive management system for administrators. This platform leverages PHP to handle server-side scripting, coupled with MySQL for database management, HTML/CSS/JavaScript for the front-end, and various libraries and frameworks to enhance functionality. Our e-commerce platform features a powerful and intuitive admin dashboard designed to streamline the management of your online store. With a focus on flexibility and ease of use, the dashboard enables administrators to efficiently organize and maintain product listings, categories, and variants to ensure a seamless shopping experience for customers",
+        desc: "The PHP eCommerce Platform is a robust and scalable online shopping solution designed to offer a shopping experience for users and an intuitive management system for administrators. This platform leverages PHP to handle server-side scripting, coupled with MySQL for database management, HTML/CSS/JavaScript for the front-end, and various libraries and frameworks to enhance functionality. Our e-commerce platform features a powerful and intuitive admin dashboard designed to streamline the management of your online store. With a focus on flexibility and ease of use, the dashboard enables administrators to efficiently organize and maintain product listings, categories, and variants to ensure a seamless shopping experience for customers",
         image: "https://placehold.co/600x400?text=E-Commerce+Platform",
         live: false,
         technologies: ["PHP", "Bootstrap", "HTML", "CSS", "Javascript"],
@@ -68,7 +80,7 @@ const ProjectInfo = [
         github: "https://github.com/aamirk1/ecomerc.git",
         type: "Web"
     },
-]
+];
 
 const SkillInfo = [
     {
@@ -91,7 +103,7 @@ const SkillInfo = [
         title: "Tools",
         skills: ["Git", "Github", "Figma", "VS Code", "Postman", "MongoDB Compass", "Linux", "Numpy", "Matplotlib", "Pandas", "TensorFlow", "Xampp"]
     }
-]
+];
 
 const ExperienceInfo = [
     {
@@ -114,8 +126,7 @@ const ExperienceInfo = [
         date: "April 2025 - May 2025",
         desc: "As a Flutter Developer, I am responsible for designing and building cross-platform mobile applications that provide an engaging user experience. My role involves collaborating with clients and designers to define application features and ensure high performance across various devices. I leverage the Flutter framework and Dart programming language to deliver high-quality, maintainable code.",
         skills: ["Flutter", "Dart", "Firebase", "REST API", "Git"]
-    }
-    ,
+    },
     {
         role: "Senior Flutter Developer",
         company: "Anjita IT Solutions",
@@ -123,8 +134,12 @@ const ExperienceInfo = [
         desc: "As a Senior Flutter Developer, I am responsible for designing and building cross-platform mobile applications that provide an engaging user experience. My role involves collaborating with clients, backend developers, UI/UX designers and project managers to define application features and ensure high performance across various devices. I leverage the Flutter framework and Dart programming language to deliver high-quality, maintainable code.",
         skills: ["Flutter", "Dart", "Firebase", "REST API", "Git"]
     }
-]
-const socialLinks = [{ link: "https://github.com/aamirk1", icon: IconBrandGithub }, { link: "https://in.linkedin.com/in/aamirkhan131", icon: IconBrandLinkedin },];
+];
+
+const socialLinks = [
+  { link: "https://github.com/aamirk1", iconName: "github", order: 0 },
+  { link: "https://in.linkedin.com/in/aamirkhan131", iconName: "linkedin", order: 1 }
+];
 
 const Slugs = [
     "typescript",
@@ -143,18 +158,54 @@ const Slugs = [
     "firebase",
     "nginx",
     "vercel",
-    // "testinglibrary",
-    // "jest",
-    // "cypress",
-    // "docker",
     "git",
     "jira",
     "github",
     "gitlab",
     "visualstudiocode",
     "androidstudio",
-    // "sonarqube",
     "figma",
 ];
-export { Info, ProjectInfo, SkillInfo, ExperienceInfo, socialLinks, Slugs };
 
+async function seed() {
+  console.log("Seeding started...");
+  try {
+    // Seed profile_info/about
+    console.log("Seeding profile_info...");
+    await setDoc(doc(db, "profile_info", "about"), Info);
+
+    // Seed projects
+    console.log("Seeding projects...");
+    for (const project of ProjectInfo) {
+      await setDoc(doc(db, "projects", project.title), project);
+    }
+
+    // Seed skills
+    console.log("Seeding skills...");
+    for (const skillCat of SkillInfo) {
+      await setDoc(doc(db, "skills", skillCat.title.toLowerCase()), skillCat);
+    }
+
+    // Seed experience
+    console.log("Seeding experience...");
+    for (let i = 0; i < ExperienceInfo.length; i++) {
+      await setDoc(doc(db, "experience", `exp_${i}`), { ...ExperienceInfo[i], order: i });
+    }
+
+    // Seed social_links
+    console.log("Seeding social_links...");
+    for (let i = 0; i < socialLinks.length; i++) {
+      await setDoc(doc(db, "social_links", `social_${i}`), socialLinks[i]);
+    }
+
+    // Seed slugs
+    console.log("Seeding slugs...");
+    await setDoc(doc(db, "slugs", "tech_slugs"), { list: Slugs });
+
+    console.log("Firestore successfully seeded!");
+  } catch (error) {
+    console.error("Seeding failed:", error);
+  }
+}
+
+seed();

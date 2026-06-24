@@ -1,7 +1,7 @@
 "use client";
 import { Timeline, useMatches, Badge, Group, Text, Image } from "@mantine/core";
 import { IconBriefcase } from "@tabler/icons-react";
-import { ExperienceInfo } from "@/data/User";
+import { usePortfolio } from "./PortfolioContext";
 import { motion } from "framer-motion";
 
 const TimelineItem = (items: any[]) => {
@@ -73,6 +73,7 @@ const TimelineItem = (items: any[]) => {
 };
 
 const Experience = () => {
+  const { ExperienceInfo } = usePortfolio();
   const bulletSize = useMatches({
     xs: 24,
     sm: 30,
